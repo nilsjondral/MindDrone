@@ -1,2 +1,2 @@
 # MindDrone
-thinks &amp; fly
+think &amp; fly
