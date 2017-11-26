@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, OnInit, EventEmitter } from '@angular/core';
 import * as io from 'socket.io-client';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -11,8 +11,17 @@ export class BrainSocketService {
 
   paused = false;
 
+  connection: EventEmitter<boolean> = new EventEmitter();
+
   constructor() {
     this.socket = io('http://localhost:3000');
+    this.socket.on('connected', () => {
+      this.connection.emit(true);
+    });
+
+    this.socket.on('disconnect', () => {
+      this.connection.emit(false);
+    });
   }
 
   start() {

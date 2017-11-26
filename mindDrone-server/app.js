@@ -40,6 +40,8 @@ io.on('connection', function (socket) {
         console.log('pause', paused);
         paused = !paused;
     });
+    
+    socket.emit('connected');
 });
 
 http.listen(3000, function () {

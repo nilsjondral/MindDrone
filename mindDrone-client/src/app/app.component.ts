@@ -1,4 +1,4 @@
-import { IBrainData } from './model';
+import { IBrainData, IEegPower, IESense } from './model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BrainSocketService } from './services/brain-socket.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -14,8 +14,18 @@ export class AppComponent implements OnDestroy {
   title = 'MindDrone 1.O';
 
   isPaused = false;
+  isConnected = false;
+  poorSignalLevel = 0;
+
+  eegData: IEegPower = null;
+  eSenseData: IESense = null;
 
   constructor(private service: BrainSocketService) {
+    this.subscriptions.push(service.connection.subscribe((value) => {
+      this.isConnected = value;
+      this.eegData = null;
+      this.eSenseData = null;
+    }));
   }
 
   start($event: Event) {
@@ -24,7 +34,10 @@ export class AppComponent implements OnDestroy {
 
     this.subscriptions.push(this.service.getBrainData().subscribe((data: IBrainData) => {
       console.log('data', data);
+      this.eegData = data.eegPower;
+      this.eSenseData = data.eSense;
       this.isPaused = this.service.paused;
+      this.poorSignalLevel = data.poorSignalLevel;
     }));
   }
 
