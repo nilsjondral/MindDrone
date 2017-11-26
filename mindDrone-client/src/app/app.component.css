@@ -26,5 +26,13 @@
 
 .headerElement img {
     padding: 5px;
-    background-color: white;
+}
+
+.title {
+    width: 250px;
+    display: inline-flex;
+}
+
+.title img {
+    padding: 0px;
 }

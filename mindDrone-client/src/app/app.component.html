@@ -3,13 +3,16 @@
     <img src="../assets/Ordina.png" alt="Ordina" />
   </div>
   <div class="headerElement">
-    <h1>{{title}}</h1>
+    <span class="title">
+      <h1>{{title}}</h1>
+      <img src="../assets/brain.png" alt="brain" />
+    </span>
   </div>
   <div class="headerElement">
     <app-status [isPaused]="isPaused" [isConnected]="isConnected" [poorSignalLevel]="poorSignalLevel"></app-status>
     <div>
-      <button (click)="start($event)" [disabled]="!isConnected">Start</button>
-      <button (click)="pause($event)" [disabled]="!isConnected">pause</button>
+      <button (click)="start($event)" [disabled]="!isConnected" class="btn">Start</button>
+      <button (click)="pause($event)" [disabled]="!isConnected" class="btn">pause</button>
     </div>
   </div>
 </div>
