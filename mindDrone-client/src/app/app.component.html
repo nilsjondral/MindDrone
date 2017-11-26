@@ -1,8 +1,17 @@
-<div style="text-align:center">
-  <h1>{{title}}</h1>
-  <app-status [isPaused]="isPaused" [isConnected]="isConnected" [poorSignalLevel]="poorSignalLevel"></app-status>
-  <button (click)="start($event)" [disabled]="!isConnected">Start</button>
-  <button (click)="pause($event)" [disabled]="!isConnected">pause</button>
-  <app-e-sense-data [eSense]="eSenseData"></app-e-sense-data>
-  <app-eeg-data [eegPower]="eegData"></app-eeg-data>
+<div class="header">
+  <div class="headerElement">
+    <img src="../assets/Ordina.png" alt="Ordina" />
+  </div>
+  <div class="headerElement">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="headerElement">
+    <app-status [isPaused]="isPaused" [isConnected]="isConnected" [poorSignalLevel]="poorSignalLevel"></app-status>
+    <div>
+      <button (click)="start($event)" [disabled]="!isConnected">Start</button>
+      <button (click)="pause($event)" [disabled]="!isConnected">pause</button>
+    </div>
+  </div>
 </div>
+<app-e-sense-data [eSense]="eSenseData"></app-e-sense-data>
+<app-eeg-data [eegPower]="eegData"></app-eeg-data>

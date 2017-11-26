@@ -1,0 +1,30 @@
+.header {
+    background-color: #e98300;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 75px;
+    border-bottom: solid white 4px; 
+    color: white;
+}
+
+.headerElement:first-child {
+    text-align: left;
+    margin-top: 0px;
+}
+
+.headerElement:last-child {
+    text-align: right;
+}
+
+.headerElement {
+    text-align: center;
+    width: 33%;
+    height: 75px;
+    vertical-align: middle;
+    margin-top: 16px;
+}
+
+.headerElement img {
+    padding: 5px;
+    background-color: white;
+}

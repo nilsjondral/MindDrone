@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class AppComponent implements OnDestroy {
   private subscriptions: Array<Subscription> = [];
 
-  title = 'MindDrone 1.O';
+  title = 'MindDrone';
 
   isPaused = false;
   isConnected = false;
